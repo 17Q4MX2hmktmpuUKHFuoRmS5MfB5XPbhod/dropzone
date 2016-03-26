@@ -1,0 +1,41 @@
+.post_a_listing button {
+  position: absolute;
+  right: 34px;
+  top: 2px;
+}
+
+.listing {
+  margin-bottom: 20px;
+  background-color: #464545;
+  padding: 10px 0 10px 0;
+  margin-right:20px;
+  margin-left:2px;
+  position: relative;
+
+  .pricing {
+    font-size: 1.4em;
+    padding-top: 5px;
+  }
+  .location {
+    font-size: 1.2em;
+  }
+  .blockDateTime {
+    margin-bottom: 52px;
+  }
+  .listing_image {
+    width: 214px;
+  }
+
+  .listing_description {
+    font-size: 1.8em;
+    text-overflow: ellipsis;
+    color: #0ce3ac;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .see_more {
+    font-size: 1.2em;
+  }
+
+}

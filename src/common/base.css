@@ -1,0 +1,8 @@
+:global(.navbar-brand) {
+  span, img { display: inline-block }
+  img { margin-right: 8px; }
+}
+
+:global(h1) {
+  margin-top:0;
+}

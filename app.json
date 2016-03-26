@@ -1,0 +1,15 @@
+{
+  "name": "Drop Zone",
+  "description": "The Drop Zone GUI: An anonymous peer-to-peer local contraband marketplace",
+  "keywords": [
+    "react",
+    "babel",
+    "starter"
+  ],
+  "repository": "https://github.com/17Q4MX2hmktmpuUKHFuoRmS5MfB5XPbhod/dropzone",
+  "logo": "https://raw.githubusercontent.com/17Q4MX2hmktmpuUKHFuoRmS5MfB5XPbhod/dropzone-lib/master/dropzone-logo.png",
+  "env": {
+    "PRODUCTION": "true",
+    "NPM_CONFIG_PRODUCTION": "false"
+  }
+}
