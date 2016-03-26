@@ -11,6 +11,24 @@ const SIDE_LINKS = [
     page: 'listings', 
     title: 'Listings'
   },
+  {
+    link: '/sellers',
+    title: 'Sellers',
+    page: 'sellers',
+    disabled: false
+  },
+  {
+    link: '/buyers',
+    title: 'Buyers',
+    page: 'buyers',
+    disabled: false
+  },
+  {
+    link: '/blocks',
+    title: 'Blocks',
+    page: 'blocks',
+    disabled: false
+  },
   { link: '/communications',
     page: 'communications', 
     title: 'Communications',
@@ -25,30 +43,6 @@ const SIDE_LINKS = [
     title: 'Help'
   }
 ];
-
-const NAV_LINKS = {
-  'dashboard': {
-    link: '/',
-    title: 'Dashboard'
-  },
-  'listings': {
-    link: '/listings',
-    title: 'Listings'
-  },
-  'communications': {
-    link: '/communications',
-    title: 'Communications',
-    disabled: true
-  },
-  'settings': {
-    link: '/settings',
-    title: 'Settings'
-  },
-  'help': {
-    link: '/help',
-    title: 'Help'
-  }
-};
 
 const NavMain = React.createClass({
   propTypes: {

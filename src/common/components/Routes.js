@@ -9,6 +9,8 @@ export default (
   <Route path="/" component={App}>
     <IndexRoute component={DashboardPage} />
     <Route path="dashboard" component={DashboardPage} />
-    <Route path="listings" component={ListingsPage} />
+    <Route path="listings" component={ListingsPage}>
+      <Route path="/listings/:txId" component={ListingsPage}/>
+    </Route>
   </Route>
 );
