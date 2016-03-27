@@ -4,8 +4,8 @@ import { Tabs, Tab, Nav, NavItem, Navbar } from 'react-bootstrap';
 
 const SIDE_LINKS = [
   { link: '/',
-    page: 'dashboard', 
-    title: 'Dashboard'
+    page: 'home', 
+    title: 'Home'
   },
   { link: '/listings',
     page: 'listings', 

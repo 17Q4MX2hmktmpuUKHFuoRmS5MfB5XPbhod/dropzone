@@ -42,13 +42,15 @@ export default class ListingsPage extends React.Component {
   }
 
   renderListing(listing) {
+    let listingDetailUrl = `/listings/${listing.txid}`;
+
     return (
       <div className={'row '+styles.listing}>
         <div className={'col-md-4 '+styles.listing_image}>
           <img src={listing.thumbnail} />
         </div>
         <div className={'col-md-8 '+styles.listing_description}>
-          <a href="#">{listing.description}</a>
+          <a href={listingDetailUrl}>{listing.description}</a>
         </div>
         <div className={'col-md-1 '+styles.pricing}>
           {listing.priceInHuman}
@@ -66,9 +68,10 @@ export default class ListingsPage extends React.Component {
           Block: {listing.blockHeightInHuman}
         </div>
         <div className="col-md-8">
-          <a href="#" className={styles.see_more}>See More</a>
+          <a href={listingDetailUrl}>See More</a>
         </div>
       </div>
     );
   }
 }
+
