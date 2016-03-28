@@ -34,6 +34,14 @@ const SIDE_LINKS = [
     title: 'Communications',
     disabled: true
   },
+  { link: '/create-item',
+    page: 'create_item', 
+    title: 'Post a Listing'
+  },
+  { link: '/bulk-upload',
+    page: 'bulk_upload', 
+    title: 'Bulk Upload'
+  },
   { link: '/settings',
     page: 'settings', 
     title: 'Settings'

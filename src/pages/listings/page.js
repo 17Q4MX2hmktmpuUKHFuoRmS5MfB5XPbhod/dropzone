@@ -3,7 +3,7 @@ import styles from "./style.css";
 
 import NavMain from '../../common/components/NavMain';
 
-import { Button } from 'react-bootstrap';
+import { Button, Breadcrumb, BreadcrumbItem } from 'react-bootstrap';
 
 export default class ListingsPage extends React.Component {
   render() {
@@ -32,8 +32,20 @@ export default class ListingsPage extends React.Component {
         <div className="row">
           <div className={'col-md-12 '+styles.post_a_listing}>
             <h1>Recent Drop Zone Listings</h1>
-            <p>Showing Listings from "Everywhere" from block 404,262 down</p>
             <Button bsStyle="danger">Post a Listing</Button>
+          </div>
+          <div className='col-md-2'>
+             <Breadcrumb>
+              <BreadcrumbItem href="/">
+                Home
+              </BreadcrumbItem>
+              <BreadcrumbItem active>
+                Listings
+              </BreadcrumbItem>
+            </Breadcrumb> 
+          </div>
+          <div className='col-md-12'>
+            <p>Showing Listings from "Everywhere" from block 404,262 down</p>
           </div>
         </div>
         {listings}
