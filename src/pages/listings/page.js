@@ -36,7 +36,7 @@ export default class ListingsPage extends React.Component {
           </div>
           <div className='col-md-2'>
              <Breadcrumb>
-              <BreadcrumbItem href="/">
+              <BreadcrumbItem href="#/">
                 Home
               </BreadcrumbItem>
               <BreadcrumbItem active>
@@ -54,7 +54,7 @@ export default class ListingsPage extends React.Component {
   }
 
   renderListing(listing) {
-    let listingDetailUrl = `/listings/${listing.txid}`;
+    let listingDetailUrl = `#/listings/${listing.txid}`;
 
     return (
       <div className={'row '+styles.listing}>

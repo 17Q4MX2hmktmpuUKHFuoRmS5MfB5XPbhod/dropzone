@@ -40,10 +40,10 @@ export default class ListingPage extends React.Component {
           </div>
           <div className='col-md-11'>
            <Breadcrumb>
-              <BreadcrumbItem href="/">
+              <BreadcrumbItem href="#/">
                 Home
               </BreadcrumbItem>
-              <BreadcrumbItem href="/listings">
+              <BreadcrumbItem href="#/listings">
                 Listings
               </BreadcrumbItem>
               <BreadcrumbItem active>

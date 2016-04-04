@@ -3,50 +3,50 @@ import { Link } from 'react-router';
 import { Tabs, Tab, Nav, NavItem, Navbar } from 'react-bootstrap';
 
 const SIDE_LINKS = [
-  { link: '/',
+  { link: '#/',
     page: 'home', 
     title: 'Home'
   },
-  { link: '/listings',
+  { link: '#/listings',
     page: 'listings', 
     title: 'Listings'
   },
   {
-    link: '/sellers',
+    link: '#/sellers',
     title: 'Sellers',
     page: 'sellers',
     disabled: false
   },
   {
-    link: '/buyers',
+    link: '#/buyers',
     title: 'Buyers',
     page: 'buyers',
     disabled: false
   },
   {
-    link: '/blocks',
+    link: '#/blocks',
     title: 'Blocks',
     page: 'blocks',
     disabled: false
   },
-  { link: '/communications',
+  { link: '#/communications',
     page: 'communications', 
     title: 'Communications',
     disabled: true
   },
-  { link: '/create-item',
+  { link: '#/create-item',
     page: 'create_item', 
     title: 'Post a Listing'
   },
-  { link: '/bulk-upload',
+  { link: '#/bulk-upload',
     page: 'bulk_upload', 
     title: 'Bulk Upload'
   },
-  { link: '/settings',
+  { link: '#/settings',
     page: 'settings', 
     title: 'Settings'
   },
-  { link: '/help',
+  { link: '#/help',
     page: 'help', 
     title: 'Help'
   }
@@ -59,7 +59,7 @@ const NavMain = React.createClass({
 
   render() {
     let brand = (
-      <Link to="/" className="navbar-brand">
+      <Link to="#/" className="navbar-brand">
         <img src="/img/dropzone-logo-32x32.png" width="24" height="24" />
         Drop Zone
       </Link>

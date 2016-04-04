@@ -8,7 +8,7 @@ import 'babel-polyfill';
 // Libraries
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, browserHistory } from 'react-router';
+import { Router, hashHistory } from 'react-router';
 
 // Routes
 import Routes from './common/components/Routes';
@@ -21,7 +21,7 @@ const DOM_APP_EL_ID = 'app';
 
 // Render the router
 ReactDOM.render((
-  <Router history={browserHistory}>
+  <Router history={hashHistory}>
     {Routes}
   </Router>
 ), document.getElementById(DOM_APP_EL_ID));

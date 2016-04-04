@@ -6,7 +6,7 @@ import NavMain from '../../common/components/NavMain';
 
 export default class DashboardPage extends React.Component {
   signUp() {
-    browserHistory.push('/home');
+    browserHistory.push('#/home');
   }
   
   render() {
