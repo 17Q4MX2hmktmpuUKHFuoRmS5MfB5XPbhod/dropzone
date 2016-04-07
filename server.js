@@ -3,7 +3,7 @@ const app = express();
 
 const staticResources = ['app.js', 'style.css', 'css/bootstrap.min.css', 
   'bootstrap-theme.min.css', 'js/bootstrap.min.js', 'css/bootstrap-darkly.min.css',
-  'img/dropzone-logo-32x32.png']
+  'img/dropzone-logo-32x32.png', 'js/dropzone-lib.min.js']
 
 staticResources.forEach( (resource) => {
   app.get(`/${resource}`, (req, res) => {

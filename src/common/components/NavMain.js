@@ -1,58 +1,29 @@
-import React from 'react';
-import { Link } from 'react-router';
-import { Tabs, Tab, Nav, NavItem, Navbar } from 'react-bootstrap';
+import React from 'react'
+import { Link } from 'react-router'
+import { Tabs, Tab, Nav, NavItem, Navbar } from 'react-bootstrap'
+import Modal from 'react-bootstrap-modal'
 
 const SIDE_LINKS = [
-  { link: '#/',
-    page: 'home', 
-    title: 'Home'
-  },
-  { link: '#/listings',
-    page: 'listings', 
-    title: 'Listings'
-  },
-  {
-    link: '#/sellers',
-    title: 'Sellers',
-    page: 'sellers',
-    disabled: false
-  },
-  {
-    link: '#/buyers',
-    title: 'Buyers',
-    page: 'buyers',
-    disabled: false
-  },
-  {
-    link: '#/blocks',
-    title: 'Blocks',
-    page: 'blocks',
-    disabled: false
-  },
-  { link: '#/communications',
-    page: 'communications', 
-    title: 'Communications',
-    disabled: true
-  },
-  { link: '#/create-item',
-    page: 'create_item', 
-    title: 'Post a Listing'
-  },
-  { link: '#/bulk-upload',
-    page: 'bulk_upload', 
-    title: 'Bulk Upload'
-  },
-  { link: '#/settings',
-    page: 'settings', 
-    title: 'Settings'
-  },
-  { link: '#/help',
-    page: 'help', 
-    title: 'Help'
-  }
+  { link: '#/', page: 'home',  title: 'Home' },
+  { link: '#/listings', page: 'listings',  title: 'Listings' },
+  { link: '#/sellers', title: 'Sellers', page: 'sellers', disabled: false },
+  { link: '#/buyers', title: 'Buyers', page: 'buyers', disabled: false },
+  { link: '#/blocks', title: 'Blocks', page: 'blocks', disabled: false },
+  { link: '#/communications', page: 'communications',  title: 'Communications',
+    disabled: true },
+  { link: '#/transactions', page: 'transactions',  title: 'Your Transactions',
+    disabled: true },
+  { link: '#/create-item', page: 'create_item',  title: 'Post a Listing' },
+  { link: '#/bulk-upload', page: 'bulk_upload',  title: 'Bulk Upload' },
+  { link: '#/settings', page: 'settings',  title: 'Settings' },
+  { link: '#/help', page: 'help',  title: 'Help' }
 ];
 
 const NavMain = React.createClass({
+  getInitialState() {
+    return { loginModalOpen: false }
+  },
+  
   propTypes: {
     activePage: React.PropTypes.string
   },
@@ -66,6 +37,13 @@ const NavMain = React.createClass({
     );
     let sidebar = SIDE_LINKS.map(this.renderSideItem)
     let activeKey = SIDE_LINKS.findIndex( i => (i.page == this.props.activePage) )
+    let closeModal = () => this.setState({ loginModalOpen: false })
+    let openModal = () => this.setState({ loginModalOpen: true })
+
+    let saveAndClose = () => {
+      api.saveData()
+        .then(() => this.setState({ loginModalOpen: false }))
+    }
 
     return (
       <div>
@@ -75,9 +53,7 @@ const NavMain = React.createClass({
           </Navbar.Header>
           <Navbar.Collapse className="bs-navbar-collapse" >
             <Nav role="navigation" id="top" pullRight>
-              <li key="login">
-                <Link to='login'>Login</Link>
-              </li>
+              <NavItem onClick={openModal}>Login</NavItem>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
@@ -91,6 +67,20 @@ const NavMain = React.createClass({
           {this.props.children}
           </div>
         </div>
+        <Modal id="loginModal" show={this.state.loginModalOpen} onHide={closeModal} aria-labelledby="ModalHeader">
+          <Modal.Header closeButton>
+            <Modal.Title>Log Into Your Account</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <p>TODO: An explanation of how your account is a wallet?</p>
+          </Modal.Body>
+          <Modal.Footer>
+            <Modal.Dismiss className='btn btn-default'>Cancel</Modal.Dismiss>
+            <button className='btn btn-primary' onClick={saveAndClose}>
+              Save
+            </button>
+          </Modal.Footer>
+        </Modal> 
       </div>
     );
   },
@@ -99,7 +89,10 @@ const NavMain = React.createClass({
     let eventKey = SIDE_LINKS.indexOf(link)
 
     return (
-      <NavItem key={eventKey} eventKey={eventKey} href={link.link} disabled={link.disabled}>{link.title}</NavItem>
+      <NavItem key={eventKey} 
+        eventKey={eventKey}
+        href={link.link} 
+        disabled={link.disabled}>{link.title}</NavItem>
       );
   },
 
