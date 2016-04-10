@@ -32,7 +32,7 @@ export default class ListingsPage extends React.Component {
         <div className="row">
           <div className={'col-md-12 '+styles.post_a_listing}>
             <h1>Recent Drop Zone Listings</h1>
-            <Button bsStyle="danger">Post a Listing</Button>
+            <Button bsStyle="danger" href="#/create-item">Post a Listing</Button>
           </div>
           <div className='col-md-2'>
              <Breadcrumb>

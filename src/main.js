@@ -15,6 +15,7 @@ import Routes from './common/components/Routes';
 
 // Base styling
 import './common/base.css';
+import './common/react-flipper.css';
 
 // ID of the DOM element to mount app on
 const DOM_APP_EL_ID = 'app';

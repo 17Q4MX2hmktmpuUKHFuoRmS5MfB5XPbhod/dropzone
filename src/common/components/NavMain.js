@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router'
 import { Tabs, Tab, Nav, NavItem, Navbar } from 'react-bootstrap'
-import Modal from 'react-bootstrap-modal'
+import LoginModal from '../../components/login_modal.js'
+import { Input } from 'react-bootstrap';
 
 const SIDE_LINKS = [
   { link: '#/', page: 'home',  title: 'Home' },
@@ -18,6 +19,7 @@ const SIDE_LINKS = [
   { link: '#/settings', page: 'settings',  title: 'Settings' },
   { link: '#/help', page: 'help',  title: 'Help' }
 ];
+
 
 const NavMain = React.createClass({
   getInitialState() {
@@ -41,8 +43,7 @@ const NavMain = React.createClass({
     let openModal = () => this.setState({ loginModalOpen: true })
 
     let saveAndClose = () => {
-      api.saveData()
-        .then(() => this.setState({ loginModalOpen: false }))
+      this.setState({ loginModalOpen: false })
     }
 
     return (
@@ -53,7 +54,7 @@ const NavMain = React.createClass({
           </Navbar.Header>
           <Navbar.Collapse className="bs-navbar-collapse" >
             <Nav role="navigation" id="top" pullRight>
-              <NavItem onClick={openModal}>Login</NavItem>
+              <NavItem onClick={openModal}>Open or Create a Wallet</NavItem>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
@@ -67,20 +68,7 @@ const NavMain = React.createClass({
           {this.props.children}
           </div>
         </div>
-        <Modal id="loginModal" show={this.state.loginModalOpen} onHide={closeModal} aria-labelledby="ModalHeader">
-          <Modal.Header closeButton>
-            <Modal.Title>Log Into Your Account</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <p>TODO: An explanation of how your account is a wallet?</p>
-          </Modal.Body>
-          <Modal.Footer>
-            <Modal.Dismiss className='btn btn-default'>Cancel</Modal.Dismiss>
-            <button className='btn btn-primary' onClick={saveAndClose}>
-              Save
-            </button>
-          </Modal.Footer>
-        </Modal> 
+        <LoginModal show={this.state.loginModalOpen} onHide={closeModal} onLogin={saveAndClose} />
       </div>
     );
   },
