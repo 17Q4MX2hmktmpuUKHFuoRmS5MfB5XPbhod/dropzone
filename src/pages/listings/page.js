@@ -34,7 +34,7 @@ export default class ListingsPage extends React.Component {
             <h1>Recent Drop Zone Listings</h1>
             <Button bsStyle="danger" href="#/create-item">Post a Listing</Button>
           </div>
-          <div className='col-md-2'>
+          <div className='col-md-4'>
              <Breadcrumb>
               <BreadcrumbItem href="#/">
                 Home

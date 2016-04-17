@@ -7,6 +7,11 @@
   margin-top:0;
 }
 
-:global(#loginModal) {
-  display:block;
+:global {
+  .modal-body {
+    a, a:visited {
+      text-decoration: underline;
+      cursor:pointer;
+    }
+  }
 }
