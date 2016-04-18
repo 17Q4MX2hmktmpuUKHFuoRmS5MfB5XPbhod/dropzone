@@ -23,12 +23,7 @@ const LoginModal = React.createClass({
       this.setState({ newWalletMnemonic: Mnemonic().toString() })
     }
 
-    const refreshButton = (
-      <button title="Action" onClick={newMnemonic} className="btn btn-default">
-        Refresh
-      </button>
-    );
-
+    let modalAction = (this.state.isCreatingWallet) ? 'Create' : 'Open'
 
     return (
       <Modal 
@@ -52,27 +47,38 @@ const LoginModal = React.createClass({
                 <Input type="text" label="Type in your 12 word passphrase:" placeholder="Log into your wallet" />
               </form>
             </Front>
-            <Back>
+            <Back key={this.state.newWalletMnemonic}>
               <p>
                 We have created a passphrase for you in the box below.
               </p>
-              <p className="danger"> todo
-                Write this passphrase down and keep it safe. If you lose this 
-                passphrase, you will lose access to your wallet forever.
+              <p>
+                If you already have a wallet <a onClick={flipModal}>click here to login</a> to that account.
+              </p>
+              <p className="important">
                 If someone gets your passphrase, they gain access to your wallet.
                 No one stores this passphrase, and it cannot be recovered if lost.
               </p>
-              <p>
-                If you already have a wallet <a onClick={flipModal}>Click here to login to that account</a>.
-              </p>
               <form>
-                <Input type="text" disabled={true} label="This is your new wallet:" 
-                  value={this.state.newWalletMnemonic} 
-                  buttonAfter={refreshButton}/>
+                <div className="row">
+                  <div className="col-md-10">
+                    <Input type="textarea" disabled={true} label="This is your new wallet:" 
+                      value={this.state.newWalletMnemonic} 
+                      bsSize="small" />
+                  </div>
+                  <div className="col-md-1">
+                    <button title="Action" onClick={newMnemonic} className="btn btn-default">
+                      <span className="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                </div>
                 <Input type="checkbox" 
                   label=" I have written down or otherwise securely stored my passphrase." />
 
               </form>
+              <p>
+                Write this passphrase down and keep it safe. If you lose this 
+                passphrase, you will lose access to your wallet forever.
+              </p>
             </Back>
           </Flipper>
         </Modal.Body>
@@ -81,7 +87,7 @@ const LoginModal = React.createClass({
             Cancel
           </button>
           <button className='btn btn-primary' onClick={this.props.onLogin}>
-            Open Wallet
+          {modalAction} Wallet
           </button>
         </Modal.Footer>
       </Modal>

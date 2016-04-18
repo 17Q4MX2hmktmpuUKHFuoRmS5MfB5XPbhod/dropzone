@@ -3,7 +3,13 @@ const app = express();
 
 const staticResources = ['app.js', 'style.css', 'css/bootstrap.css', 
   'bootstrap-theme.min.css', 'js/bootstrap.min.js', 'css/bootstrap-darkly.css',
-  'img/dropzone-logo-32x32.png', 'js/dropzone-lib.min.js']
+  'img/dropzone-logo-32x32.png', 'js/dropzone-lib.min.js',
+  'fonts/glyphicons-halflings-regular.svg',
+  'fonts/glyphicons-halflings-regular.ttf',
+  'fonts/glyphicons-halflings-regular.eot',
+  'fonts/glyphicons-halflings-regular.woof',
+  'fonts/glyphicons-halflings-regular.woof2'
+]
 
 staticResources.forEach( (resource) => {
   app.get(`/${resource}`, (req, res) => {
