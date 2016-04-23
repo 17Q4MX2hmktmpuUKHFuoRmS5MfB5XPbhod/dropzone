@@ -42,10 +42,6 @@ const NavMain = React.createClass({
     let closeModal = () => this.setState({ loginModalOpen: false })
     let openModal = () => this.setState({ loginModalOpen: true })
 
-    let saveAndClose = () => {
-      this.setState({ loginModalOpen: false })
-    }
-
     return (
       <div>
         <Navbar fluid componentClass="header" className="bs-docs-nav" role="banner">
@@ -68,7 +64,7 @@ const NavMain = React.createClass({
           {this.props.children}
           </div>
         </div>
-        <LoginModal show={this.state.loginModalOpen} onHide={closeModal} onLogin={saveAndClose} />
+        <LoginModal show={this.state.loginModalOpen} onHide={closeModal} />
       </div>
     );
   },

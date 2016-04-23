@@ -44,6 +44,7 @@ if (!process.env.PRODUCTION) {
     publicPath: config.output.publicPath,
     hot: true,
     noInfo: true,
+    headers: { "Access-Control-Allow-Origin": "*" },
     historyApiFallback: true
   }).listen(9090, 'localhost', (err, result) => {
     if (err) {

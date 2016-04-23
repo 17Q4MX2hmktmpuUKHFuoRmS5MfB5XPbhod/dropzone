@@ -17,5 +17,9 @@
       color: #e74c3c;
       font-style:bold;
     }
+
+    #refreshSeed {
+      margin-top: 25px;
+    }
   }
 }

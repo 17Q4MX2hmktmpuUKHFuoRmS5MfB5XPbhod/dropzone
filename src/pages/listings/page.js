@@ -23,9 +23,11 @@ export default class ListingsPage extends React.Component {
         locationInHuman: 'United States',
         radius: 999999
       }
+    let junsethHat2 = Object.assign({}, junsethHat, {txid: 
+      '73cfb35e1e6bb31b3ddffb41322c46f155970bfae3c40385b171ba02f88985a2'})
 
     // TODO: Add multiple blocks:
-    let listings = [junsethHat, junsethHat].map(this.renderListing)
+    let listings = [junsethHat, junsethHat2].map(this.renderListing)
 
     return (
       <NavMain activePage="listings">
@@ -57,7 +59,7 @@ export default class ListingsPage extends React.Component {
     let listingDetailUrl = `#/listings/${listing.txid}`;
 
     return (
-      <div className={'row '+styles.listing}>
+      <div key={listing.txid} className={'row '+styles.listing}>
         <div className={'col-md-4 '+styles.listing_image}>
           <img src={listing.thumbnail} />
         </div>

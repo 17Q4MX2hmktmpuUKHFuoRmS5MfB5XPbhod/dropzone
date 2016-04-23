@@ -18,9 +18,6 @@
     -moz-perspective: 1000px;
     -ms-perspective: 1000px;
   }
-  .flipper-container span {
-    color: white;
-  }
   .flipper-container > div.flipper {
     z-index: 1;
     float: left;
