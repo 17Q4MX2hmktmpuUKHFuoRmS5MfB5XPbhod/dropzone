@@ -2,11 +2,12 @@ import React from 'react'
 import { Input, Modal } from 'react-bootstrap'
 import {Flipper, Front, Back} from 'react-flipper'
 import Mnemonic from 'bitcore-mnemonic'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 const LoginModal = React.createClass({
   getInitialState() {
     return { isCreatingWallet: false, newWalletMnemonic: null, 
-      isLoginInvalid: false, loginPassphrase: false }
+      isLoginInvalid: false, loginPassphrase: null }
   },
 
   render() {
@@ -43,6 +44,7 @@ const LoginModal = React.createClass({
         show={this.props.show} 
         onShow={onShow}
         onHide={this.props.onHide}
+        className={(this.state.isLoginInvalid) ? "animated jello" : null}
         aria-labelledby="ModalHeader">
         <Modal.Header closeButton>
           <Modal.Title>Open or Create a Wallet</Modal.Title>

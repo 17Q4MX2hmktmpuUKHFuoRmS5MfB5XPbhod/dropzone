@@ -1,7 +1,7 @@
 import express from 'express';
 const app = express();
 
-const staticResources = ['app.js', 'style.css', 'css/bootstrap.css', 
+const staticResources = ['app.js', 'style.css', 'css/bootstrap.css', 'css/animate.css',
   'bootstrap-theme.min.css', 'js/bootstrap.min.js', 'css/bootstrap-darkly.css',
   'img/dropzone-logo-32x32.png', 'js/dropzone-lib.min.js',
   'fonts/glyphicons-halflings-regular.svg',
