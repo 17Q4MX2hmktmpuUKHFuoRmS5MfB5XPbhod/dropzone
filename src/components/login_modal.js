@@ -28,8 +28,8 @@ const LoginModal = React.createClass({
       // TODO: For the case of the new wallet, validate the checkbox as well
       if (Mnemonic.isValid(this.state.loginPassphrase)) {
         this.props.onHide()
-        if (this.props.onLogin) {
-          this.props.onLogin(this.state.loginPassphrase)
+        if (this.props.onOpenSuccess) {
+          this.props.onOpenSuccess(this.state.loginPassphrase)
         }
       } else {
         this.setState({ isLoginInvalid: true })

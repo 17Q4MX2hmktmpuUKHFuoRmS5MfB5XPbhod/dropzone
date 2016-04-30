@@ -54,7 +54,7 @@
     "babel-core": "^6.5.2",
     "babel-polyfill": "^6.5.0",
     "babel-runtime": "^6.5.0",
-    "bitcore-lib": "^0.13.10",
+    "bitcore-lib": "^0.13.15",
     "bitcore-mnemonic": "^1.0.1",
     "express": "^4.12.3",
     "json-loader": "^0.5.4",

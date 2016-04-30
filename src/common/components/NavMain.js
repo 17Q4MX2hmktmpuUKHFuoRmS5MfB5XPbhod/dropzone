@@ -5,17 +5,14 @@ import { Link } from 'react-router'
 import { Tabs, Tab, Nav, NavItem, Navbar } from 'react-bootstrap'
 import LoginModal from '../../components/login_modal.js'
 import { Input } from 'react-bootstrap';
+import Mnemonic from 'bitcore-mnemonic'
 
 const mapStateToProps = (state) => {
-  return { walletMnemonic: state.bip38 }
+  return { walletMnemonic: state.wallet.bip38 }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    onLogin: (bip38) => {
-      dispatch(walletSetPrivkey(bip38))
-    }
-  }
+  return { onOpenSuccess: (bip38) => { dispatch(walletSetPrivkey(bip38)) } }
 }
 
 const ConnectedLoginModal = connect(
@@ -46,7 +43,8 @@ const NavMain = React.createClass({
   },
   
   propTypes: {
-    activePage: React.PropTypes.string
+    activePage: React.PropTypes.string,
+    walletMnemonic: React.PropTypes.string,
   },
 
   render() {
@@ -61,6 +59,14 @@ const NavMain = React.createClass({
     let closeModal = () => this.setState({ loginModalOpen: false })
     let openModal = () => this.setState({ loginModalOpen: true })
 
+    let walletLabel = null
+    if (this.props.walletMnemonic) {
+      let privKey = new Mnemonic(this.props.walletMnemonic).toHDPrivateKey()
+      //var address = new Address(privKey.hdPublicKey.publicKey, Networks.livenet);
+      let walletLabel = this.props.walletMnemonic 
+    }
+
+
     return (
       <div>
         <Navbar fluid componentClass="header" className="bs-docs-nav" role="banner">
@@ -69,7 +75,12 @@ const NavMain = React.createClass({
           </Navbar.Header>
           <Navbar.Collapse className="bs-navbar-collapse" >
             <Nav role="navigation" id="top" pullRight>
-              <NavItem onClick={openModal}>Open or Create a Wallet</NavItem>
+              <NavItem className={(walletLabel) ? null : 'hidden'}>
+                Wallet: {this.props.walletMnemonic}
+              </NavItem>
+              <NavItem className={(walletLabel) ? 'hidden' : null} onClick={openModal}>
+                Open or Create a Wallet
+              </NavItem>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
@@ -110,4 +121,4 @@ const NavMain = React.createClass({
   }
 });
 
-export default NavMain;
+export default connect( mapStateToProps )(NavMain)
