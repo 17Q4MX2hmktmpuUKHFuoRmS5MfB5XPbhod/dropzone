@@ -1,6 +1,5 @@
 import React from 'react'
 import { Input, Modal } from 'react-bootstrap'
-import {Flipper, Front, Back} from 'react-flipper'
 import Mnemonic from 'bitcore-mnemonic'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
@@ -29,6 +28,9 @@ const LoginModal = React.createClass({
       // TODO: For the case of the new wallet, validate the checkbox as well
       if (Mnemonic.isValid(this.state.loginPassphrase)) {
         this.props.onHide()
+        if (this.props.onLogin) {
+          this.props.onLogin(this.state.loginPassphrase)
+        }
       } else {
         this.setState({ isLoginInvalid: true })
       }
@@ -92,7 +94,7 @@ const LoginModal = React.createClass({
                 </div>
                 <div className="col-md-2">
                   <button title="Action" id="refreshSeed" 
-                    onClick={newMnemonic} 
+                    onClick={newMnemonic}
                     className="btn btn-default">
                     <span className="glyphicon glyphicon-refresh" aria-hidden="true"></span>
                   </button>

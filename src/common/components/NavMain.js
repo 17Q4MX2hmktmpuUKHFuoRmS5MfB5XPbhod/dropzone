@@ -1,8 +1,27 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { walletSetPrivkey } from '../../actions/wallet'
 import { Link } from 'react-router'
 import { Tabs, Tab, Nav, NavItem, Navbar } from 'react-bootstrap'
 import LoginModal from '../../components/login_modal.js'
 import { Input } from 'react-bootstrap';
+
+const mapStateToProps = (state) => {
+  return { walletMnemonic: state.bip38 }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onLogin: (bip38) => {
+      dispatch(walletSetPrivkey(bip38))
+    }
+  }
+}
+
+const ConnectedLoginModal = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginModal)
 
 const SIDE_LINKS = [
   { link: '#/', page: 'home',  title: 'Home' },
@@ -64,7 +83,7 @@ const NavMain = React.createClass({
           {this.props.children}
           </div>
         </div>
-        <LoginModal show={this.state.loginModalOpen} onHide={closeModal} />
+        <ConnectedLoginModal show={this.state.loginModalOpen} onHide={closeModal} />
       </div>
     );
   },

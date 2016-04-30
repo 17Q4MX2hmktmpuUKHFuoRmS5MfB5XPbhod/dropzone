@@ -1,0 +1,4 @@
+module.exports = {
+  WALLET_SET_PRIVKEY: 'wallet/SET_PRIVKEY',
+  WALLET_DISCARD_PRIVKEY: 'wallet/DISCARD_PRIVKEY'
+}
