@@ -20,7 +20,8 @@ const LoginModal = React.createClass({
       this.setState(newState)
     }
 
-    let newMnemonic = () => {
+    let newMnemonic = (e) => {
+      e.preventDefault()
       this.setState({ newWalletMnemonic: Mnemonic().toString() })
     }
 
