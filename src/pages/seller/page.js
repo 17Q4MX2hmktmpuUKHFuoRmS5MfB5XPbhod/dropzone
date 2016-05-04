@@ -6,7 +6,6 @@ import NavMain from '../../common/components/NavMain';
 import { Button, Breadcrumb, BreadcrumbItem, Table } from 'react-bootstrap';
 
 export default class SellerPage extends React.Component {
-
   componentDidMount() {
     this.setState({
       sellerId: this.props.params.sellerId  // check what ID to use

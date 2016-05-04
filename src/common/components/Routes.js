@@ -15,5 +15,6 @@ export default (
     <Route path="listings" component={ListingsPage} />
     <Route path="listings/:txId" component={ListingPage}/>
     <Route path="create-item" component={CreateItemPage} />
+    <Route path="sellers/:sellerId" component={SellerPage}/>
   </Route>
 );
