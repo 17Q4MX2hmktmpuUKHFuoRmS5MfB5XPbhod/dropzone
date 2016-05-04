@@ -6,6 +6,7 @@ import DashboardPage from '../../pages/dashboard/page';
 import ListingsPage from '../../pages/listings/page';
 import ListingPage from '../../pages/listing/page';
 import CreateItemPage from '../../pages/create_item/page';
+import SellerPage from '../../pages/seller/page';
 
 export default (
   <Route path="/" component={App}>
