@@ -6,6 +6,7 @@ import { Tabs, Tab, Nav, NavItem, Navbar } from 'react-bootstrap'
 import LoginModal from '../../components/login_modal.js'
 import { Input } from 'react-bootstrap';
 import Mnemonic from 'bitcore-mnemonic'
+import {Address, Networks} from 'bitcore-lib'
 
 const mapStateToProps = (state) => {
   return { walletMnemonic: state.wallet.bip38 }
@@ -62,7 +63,8 @@ const NavMain = React.createClass({
     let walletLabel = null
     if (this.props.walletMnemonic) {
       let privKey = new Mnemonic(this.props.walletMnemonic).toHDPrivateKey()
-      //var address = new Address(privKey.hdPublicKey.publicKey, Networks.livenet);
+      var address = new Address(privKey.hdPublicKey.publicKey, Networks.livenet);
+      console.log(address)
       let walletLabel = this.props.walletMnemonic 
     }
 
