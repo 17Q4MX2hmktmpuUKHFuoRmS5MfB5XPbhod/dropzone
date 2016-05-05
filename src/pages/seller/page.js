@@ -21,7 +21,12 @@ export default class SellerPage extends React.Component {
       description: 'I \'m an anarcho-miLLinerist selling hats',
       identity: '14zBTbnhzHjdAKkaR4J9kCPiyVyNoaqoti', // identity transfer, consult whitepaper on what this means
       listings: '',
-      thumbnail: '#'
+      thumbnail: '#',
+      blockHeight: 404260,
+      blockHeightInHuman: '404,260',
+      blockDateTimeInHuman: 'Saturday, March 26th, 2016',
+      locationInHuman: 'United States',
+
     }
 
     let junsethHat = { block: 404262,

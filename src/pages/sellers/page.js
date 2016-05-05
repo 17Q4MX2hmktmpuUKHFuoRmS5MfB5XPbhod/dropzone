@@ -29,14 +29,19 @@ export default class SellersPage extends React.Component {
 
     let junseth = {
       address: '14zBTbnhzHjdAKkaR4J9kCPiyVyNoaqoti',
-      alias: 'junseth',
-      description: 'I \'m an anarcho-miLLinerist selling hats',
+      alias: 'Ben Franklin',
+      description: 'I sell \'dem benjamins, cash money son.',
       identity: '14zBTbnhzHjdAKkaR4J9kCPiyVyNoaqoti', // identity transfer, consult whitepaper on what this means
       listings: '',
-      thumbnail: '#'
+      thumbnail: 'http://sherly.mobile9.com/download/media/210/gangsta_7n68ptzn.jpg',
+      blockHeight: 404260,
+      blockHeightInHuman: '404,260',
+      blockDateTimeInHuman: 'Saturday, March 26th, 2016',
+      locationInHuman: 'United States'
     }
 
-    let junseth2 = Object.assign({}, junseth, {alias: 'junseth2'})
+    let junseth2 = Object.assign({}, junseth, {address: '14zBTbnhzHjdAKkaR4J9kCPiyVyNoaqxyz', alias:'Alex Hamilton', thumbnail: 'http://image.blingee.com/images15/content/output/000/000/000/45a/282642489_74461.gif',
+     description: 'I sell hard cash in $10 bills.', identity: '14zBTbnhzHjdAKkaR4J9kCPiyVyNoaqxyz'})
 
     let sellers = [junseth, junseth2].map(this.renderSellers)
 
@@ -73,18 +78,21 @@ export default class SellersPage extends React.Component {
     return (
       <div key={seller.address} className={'row '+styles.seller}>
         <div className={'col-md-4 '+styles.listing_image}>
-          <img src={seller.thumbnail} />
-        </div>
-        <div className={'col-md-8 '+styles.seller_address}>
-          <a href={sellerDetailUrl}>{seller.address}</a>
+          <img src={seller.thumbnail} height="225" width="200" />
         </div>
         <div className={'col-md-8 '+styles.alias}>
           {seller.alias}
         </div>
+        <div className={'col-md-8 '+styles.seller_address}>Address:
+           <a href={sellerDetailUrl}>  {seller.address}</a>
+        </div>
         <div className={'col-md-8 '+styles.description}>
           {seller.description}
         </div>
-        <div className="col-md-8">
+        <div className={'col-md-8 '+styles.location}>
+          {seller.locationInHuman}
+        </div>
+        <div className={'col-md-8 '+styles.see_more}>
           <a href={sellerDetailUrl}>See Full Profile</a>
         </div>
       </div>
