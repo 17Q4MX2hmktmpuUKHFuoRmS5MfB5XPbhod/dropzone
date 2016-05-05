@@ -20,7 +20,7 @@ export default class SellerPage extends React.Component {
       alias: 'junseth',
       description: 'I \'m an anarcho-miLLinerist selling hats',
       identity: '14zBTbnhzHjdAKkaR4J9kCPiyVyNoaqoti', // identity transfer, consult whitepaper on what this means
-      listings: [junsethHat, junsethHat2].map(this.renderListings),
+      listings: '',
       thumbnail: '#'
     }
 

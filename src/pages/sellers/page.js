@@ -7,7 +7,6 @@ import { Button, Breadcrumb, BreadcrumbItem } from 'react-bootstrap';
 
 export default class SellersPage extends React.Component {
   render() {
-
     let junsethHat = { block: 404262,
         description: '#black #baseball-cap #Drop-Zone written on the front. Signed by #brighton36 and #junseth http://bit.ly/1k5lV6I',
         thumbnail: 'http://i.imgur.com/ZZE2VG7.jpg',
@@ -33,12 +32,14 @@ export default class SellersPage extends React.Component {
       alias: 'junseth',
       description: 'I \'m an anarcho-miLLinerist selling hats',
       identity: '14zBTbnhzHjdAKkaR4J9kCPiyVyNoaqoti', // identity transfer, consult whitepaper on what this means
-      listings: listings,
+      listings: '',
       thumbnail: '#'
     }
 
-    let sellers = [junseth].map(this.renderSeller)
-    let listings = [junsethHat, junsethHat2].map(this.renderListing)
+    let junseth2 = Object.assign({}, junseth, {alias: 'junseth2'})
+
+    let sellers = [junseth, junseth2].map(this.renderSellers)
+
 
     return (
       <NavMain activePage="sellers">

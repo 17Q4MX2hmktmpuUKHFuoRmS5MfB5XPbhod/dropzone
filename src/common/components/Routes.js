@@ -17,6 +17,6 @@ export default (
     <Route path="listings/:txId" component={ListingPage}/>
     <Route path="create-item" component={CreateItemPage} />
     <Route path="sellers" component={SellersPage}/>
-    <Route path="sellers/:sellerId" component={SellerPage}/>
+    <Route path="sellers/:address" component={SellerPage}/>
   </Route>
 );
