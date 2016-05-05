@@ -8,7 +8,7 @@ import { Button, Breadcrumb, BreadcrumbItem, Table } from 'react-bootstrap';
 export default class SellerPage extends React.Component {
   componentDidMount() {
     this.setState({
-      sellerId: this.props.params.sellerId  // check what ID to use
+      sellerId: this.props.params.address  // check what ID to use
     })
   }
 
@@ -19,7 +19,7 @@ export default class SellerPage extends React.Component {
       address: '14zBTbnhzHjdAKkaR4J9kCPiyVyNoaqoti',
       alias: 'junseth',
       description: 'I \'m an anarcho-miLLinerist selling hats',
-      identity: '14zBTbnhzHjdAKkaR4J9kCPiyVyNoaqoti', // identity transfer, consult whitepaper
+      identity: '14zBTbnhzHjdAKkaR4J9kCPiyVyNoaqoti', // identity transfer, consult whitepaper on what this means
       listings: [junsethHat, junsethHat2].map(this.renderListings),
       thumbnail: '#'
     }
@@ -66,7 +66,7 @@ export default class SellerPage extends React.Component {
         <div className="row">
           <div className='col-md-7'>
             <p>
-              Seller Created:&nbsp;
+              Seller Profile Created:&nbsp;
               {seller.blockDateTimeInHuman}&nbsp;
               (Block: <a href="#">{seller.blockHeightInHuman}</a>)
             </p>
@@ -98,16 +98,14 @@ export default class SellerPage extends React.Component {
     )
   }
 
-
-
   renderListings(listing) {
-    let sellerDetailUrl = `#/sellers/${seller.txid}`;
+    let listingDetailUrl = `#/listings/${listing.txid}`;
 
     return (
       <tr>
-        <td><a href={sellerDetailUrl}>{seller.listing.description}</a></td>
-        <td>{seller.listing.locationInHuman}</td>
-        <td>{seller.listing.blockDateTimeInHuman}</td>
+        <td><a href={listingDetailUrl}>{listing.description}</a></td>
+        <td>{listing.locationInHuman}</td>
+        <td>{listing.blockDateTimeInHuman}</td>
       </tr>
     );
   }

@@ -15,7 +15,8 @@ export default class ListingPage extends React.Component {
   render() {
     let listingId = (this.state) ? this.state.listingId : null
 
-    let listing = { block: 404262, 
+
+    let listing = { block: 404262,
         description: '#black #baseball-cap #Drop-Zone written on the front. Signed by #brighton36 and #junseth http://bit.ly/1k5lV6I',
         thumbnail: 'http://i.imgur.com/ZZE2VG7.jpg',
         seller: '14zBTbnhzHjdAKkaR4J9kCPiyVyNoaqoti',
@@ -31,6 +32,8 @@ export default class ListingPage extends React.Component {
         locationInHuman: 'United States',
         radius: 999999
       }
+
+    let sellerDetailUrl = `#/sellers/${listing.seller}`;
 
     return (
       <NavMain activePage="listings">
@@ -49,7 +52,7 @@ export default class ListingPage extends React.Component {
               <BreadcrumbItem active>
                 {listingId}
               </BreadcrumbItem>
-            </Breadcrumb> 
+            </Breadcrumb>
           </div>
         </div>
         <div className="row">
@@ -70,7 +73,7 @@ export default class ListingPage extends React.Component {
             <p><a href="#">Click to see on OpenMaps</a></p>
 
             <h4 className={styles.spaceHeader}>About the Seller:</h4>
-            <p><a href="#">{listing.seller}</a></p>
+            <p><a href={sellerDetailUrl}>{listing.seller}</a></p>
             <Table striped condensed>
             <thead>
               <tr>
