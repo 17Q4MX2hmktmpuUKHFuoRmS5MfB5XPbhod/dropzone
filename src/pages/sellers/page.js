@@ -30,7 +30,7 @@ export default class SellersPage extends React.Component {
     let junseth = {
       address: '14zBTbnhzHjdAKkaR4J9kCPiyVyNoaqoti',
       alias: 'Ben Franklin',
-      description: 'I sell \'dem benjamins, cash money son.',
+      description: 'I sell \'dem #benjamins, #cash #money son.',
       identity: '14zBTbnhzHjdAKkaR4J9kCPiyVyNoaqoti', // identity transfer, consult whitepaper on what this means
       listings: '',
       thumbnail: 'http://sherly.mobile9.com/download/media/210/gangsta_7n68ptzn.jpg',
@@ -41,7 +41,7 @@ export default class SellersPage extends React.Component {
     }
 
     let junseth2 = Object.assign({}, junseth, {address: '14zBTbnhzHjdAKkaR4J9kCPiyVyNoaqxyz', alias:'Alex Hamilton', thumbnail: 'http://image.blingee.com/images15/content/output/000/000/000/45a/282642489_74461.gif',
-     description: 'I sell hard cash in $10 bills.', identity: '14zBTbnhzHjdAKkaR4J9kCPiyVyNoaqxyz'})
+     description: 'I sell hard #cash in $10 bills yo.', identity: '14zBTbnhzHjdAKkaR4J9kCPiyVyNoaqxyz'})
 
     let sellers = [junseth, junseth2].map(this.renderSellers)
 
@@ -51,6 +51,7 @@ export default class SellersPage extends React.Component {
         <div className="row">
           <div className={'col-md-12 '+styles.post_a_listing}>
             <h1>Drop Zone Sellers</h1>
+            <Button bsStyle="danger" href="#">Create Seller Profile</Button>
           </div>
           <div className='col-md-4'>
              <Breadcrumb>

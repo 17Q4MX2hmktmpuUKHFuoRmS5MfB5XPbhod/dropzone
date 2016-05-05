@@ -75,7 +75,7 @@ export default class SellerPage extends React.Component {
               {seller.blockDateTimeInHuman}&nbsp;
               (Block: <a href="#">{seller.blockHeightInHuman}</a>)
             </p>
-            <p className={styles.address}>{seller.address}</p>
+            <p className={styles.address}>{sellerId}</p>
             <p className={styles.alias}>{seller.alias}</p>
             <p className={styles.description}>{seller.description}</p>
             <Button bsStyle="danger">Message Seller</Button>
