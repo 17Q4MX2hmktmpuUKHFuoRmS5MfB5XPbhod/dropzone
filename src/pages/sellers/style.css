@@ -16,15 +16,15 @@
     font-size: 1.5em;
     color: #ffffff;
     font-weight: bold;
-    padding-top: 5px;
+    padding-top: 0px;
   }
   .location {
-    font-size: 1.2em;
-    margin-top: 15px;
+    font-size: 1.0em;
+    margin-top: 14px;
   }
   .seller_address {
     font-size: 1.2em;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
   .blockDateTime {
     margin-bottom: 22px;
@@ -39,11 +39,11 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    margin-top: 42px;
+    margin-top: 32px;
   }
 
   .see_more {
-    font-size: 1.2em;
+    font-size: 1.0em;
   }
 
 }
