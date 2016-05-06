@@ -14,7 +14,8 @@ export default class SellerPage extends React.Component {
 
   render() {
     let sellerId = (this.state) ? this.state.sellerId : null
-
+    
+    // seller's values are hardcoded, each seller page will have it's own sellerId but everythung else will be the same
     let seller = {
       address: '14zBTbnhzHjdAKkaR4J9kCPiyVyNoaqoti',
       alias: 'Ben Franklin',
@@ -26,8 +27,11 @@ export default class SellerPage extends React.Component {
       blockHeightInHuman: '404,260',
       blockDateTimeInHuman: 'Saturday, March 26th, 2016',
       locationInHuman: 'United States'
-
     }
+
+    let seller2 = Object.assign({}, seller, {address: '14zBTbnhzHjdAKkaR4J9kCPiyVyNoaqxyz', alias:'Alex Hamilton', thumbnail: 'http://image.blingee.com/images15/content/output/000/000/000/45a/282642489_74461.gif',
+     description: 'I sell hard #cash in $10 bills yo.', identity: '14zBTbnhzHjdAKkaR4J9kCPiyVyNoaqxyz'})
+
 
     let junsethHat = { block: 404262,
         description: '#black #baseball-cap #Drop-Zone written on the front. Signed by #brighton36 and #junseth http://bit.ly/1k5lV6I',
