@@ -1,0 +1,49 @@
+.post_a_listing a {
+  position: absolute;
+  right: 34px;
+  top: 2px;
+}
+
+.seller {
+  margin-bottom: 20px;
+  background-color: #464545;
+  padding: 10px 0 10px 0;
+  margin-right:20px;
+  margin-left:2px;
+  position: relative;
+
+  .alias {
+    font-size: 1.5em;
+    color: #ffffff;
+    font-weight: bold;
+    padding-top: 0px;
+  }
+  .location {
+    font-size: 1.0em;
+    margin-top: 14px;
+  }
+  .seller_address {
+    font-size: 1.2em;
+    margin-bottom: 16px;
+  }
+  .blockDateTime {
+    margin-bottom: 22px;
+  }
+  .listing_image {
+    width: 214px;
+
+  }
+
+  .description {
+    font-size: 1.8em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-top: 32px;
+  }
+
+  .see_more {
+    font-size: 1.0em;
+  }
+
+}

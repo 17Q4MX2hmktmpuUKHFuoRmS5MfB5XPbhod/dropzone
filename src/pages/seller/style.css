@@ -1,0 +1,20 @@
+.description {
+  font-size: 1.7em;
+  margin-bottom: 30px;
+}
+.address {
+  font-size: 1.7em;
+}
+.alias {
+  font-size: 1.7em;
+  font-weight: bold;
+}
+.spaceHeaderLocation {
+  margin-top: 80px;
+}
+.spaceHeaderItems {
+  margin-top: 50px;
+}
+.listing_description {
+  overflow: hidden;
+}
