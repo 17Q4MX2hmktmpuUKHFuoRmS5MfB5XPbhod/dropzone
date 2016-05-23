@@ -6,12 +6,14 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 const LoginModal = React.createClass({
   getInitialState() {
     return { isCreatingWallet: false, newWalletMnemonic: null, 
-      isLoginInvalid: false, loginPassphrase: null }
+      isLoginInvalid: false, isCreateInvalid: false, loginPassphrase: null,
+      newWalletConfirmed: false }
   },
 
   render() {
     let flipModal = () => {
-      let newState = { isCreatingWallet: !this.state.isCreatingWallet }
+      let newState = { isCreatingWallet: !this.state.isCreatingWallet,
+        isLoginInvalid: false, isCreateInvalid: false }
 
       if (newState.isCreatingWallet && !this.state.newWalletMnemonic) {
         newState.newWalletMnemonic = (new Mnemonic()).toString()
@@ -26,19 +28,31 @@ const LoginModal = React.createClass({
     }
 
     let saveAndClose = () => {
-      // TODO: For the case of the new wallet, validate the checkbox as well
-      if (Mnemonic.isValid(this.state.loginPassphrase)) {
-        this.props.onHide()
-        if (this.props.onOpenSuccess) {
-          this.props.onOpenSuccess(this.state.loginPassphrase)
+      if (this.state.isCreatingWallet) {
+        if (this.state.newWalletConfirmed) {
+          this.props.onHide()
+          if (this.props.onOpenSuccess) {
+            this.props.onOpenSuccess(this.state.newWalletMnemonic)
+          }
+        }
+        else {
+          this.setState({ isCreateInvalid: true })
         }
       } else {
-        this.setState({ isLoginInvalid: true })
+        if (Mnemonic.isValid(this.state.loginPassphrase)) {
+          this.props.onHide()
+          if (this.props.onOpenSuccess) {
+            this.props.onOpenSuccess(this.state.loginPassphrase)
+          }
+        } else {
+          this.setState({ isLoginInvalid: true })
+        }
       }
     }
 
     let onShow = () => {
-      this.setState({ isLoginInvalid: false, loginPassphrase: null })
+      this.setState({ isLoginInvalid: false, isCreateInvalid: false, 
+        newWalletConfirmed: false, loginPassphrase: null })
     }
 
     return (
@@ -48,7 +62,7 @@ const LoginModal = React.createClass({
         show={this.props.show} 
         onShow={onShow}
         onHide={this.props.onHide}
-        className={(this.state.isLoginInvalid) ? "animated jello" : null}
+        className={(this.state.isLoginInvalid || this.state.isCreateInvalid) ? "animated jello" : null}
         aria-labelledby="ModalHeader">
         <Modal.Header closeButton>
           <Modal.Title>Open or Create a Wallet</Modal.Title>
@@ -102,7 +116,10 @@ const LoginModal = React.createClass({
                 </div>
               </div>
               <Input type="checkbox" 
-                onChange={(e) => {this.state.confirmedNewWallet = e.target.value}}
+                onChange={(e) => { 
+                  this.state.newWalletConfirmed = e.target.checked}}
+                refs="newWalletConfirmed"
+                bsStyle={(this.state.isCreateInvalid) ? "error" : null}
                 label=" I have written down or otherwise securely stored my passphrase." />
 
             </form>

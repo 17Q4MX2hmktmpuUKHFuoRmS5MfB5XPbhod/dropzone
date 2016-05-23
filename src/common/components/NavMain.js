@@ -67,7 +67,7 @@ const NavMain = React.createClass({
       console.log(address)
       let walletLabel = this.props.walletMnemonic 
     }
-
+console.log(walletLabel)
 
     return (
       <div>
